@@ -1,0 +1,5 @@
+# Secrets collected by skill preconditions — never commit
+.vibecamp/
+.vibecamp/credentials.json
+
+.DS_Store

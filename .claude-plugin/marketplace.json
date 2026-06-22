@@ -1,0 +1,21 @@
+{
+  "name": "vibecamp",
+  "owner": {
+    "name": "VibeCamp / i-Free"
+  },
+  "description": "Internal VibeCamp catalog: skills that wrap a founder's landing page for paid-traffic demand validation, all to one event contract.",
+  "version": "0.1.0",
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "vibecamp-landing-kit",
+      "source": "vibecamp-landing-kit",
+      "description": "Wrap a landing to the VibeCamp standard. V1: Yandex Metrika + contract goals + ClientID/UTM linkage.",
+      "version": "0.1.0",
+      "category": "analytics",
+      "keywords": ["metrika", "yandex", "analytics", "landing", "conversion", "vibecamp"]
+    }
+  ]
+}
