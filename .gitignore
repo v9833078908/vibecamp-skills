@@ -3,3 +3,6 @@
 .vibecamp/credentials.json
 
 .DS_Store
+
+# Local git worktrees (never sync a full checkout through the vault)
+.worktrees/
