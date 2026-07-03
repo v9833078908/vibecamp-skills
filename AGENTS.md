@@ -29,7 +29,8 @@ plugins/vibecamp-landing-kit/          # the plugin
 │   ├── provisioning.md                #   operator runbook: create counter + goals
 │   └── report-template.md             #   what the agent hands back
 └── skills/
-    └── analytics-metrika/SKILL.md     # Metrika counter + contract goals  [ready]
+    ├── analytics-metrika/SKILL.md     # Metrika counter + contract goals  [ready]
+    └── payments/SKILL.md              # Callisto checkout integration  [ready]
 ```
 
 ## Skills

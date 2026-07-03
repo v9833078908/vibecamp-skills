@@ -60,8 +60,9 @@ Run order: `preflight` → `analytics-metrika` → (`ads-direct`, `payments`) �
 
 Before running `analytics-metrika` the founder needs only:
 
-1. A **Counter ID** issued by VibeCamp (the counter and goals are pre-created on
-   the shared account — the founder never opens the Metrika UI).
+1. A **Counter ID**, delivered via an operator-issued integration brief (the
+   counter and its applicable goal subset are pre-created on the shared account —
+   the founder never opens the Metrika UI).
 2. A **privacy policy page** on the landing domain.
 
 Everything else is done by the agent.

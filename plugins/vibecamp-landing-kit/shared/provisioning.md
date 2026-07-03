@@ -2,9 +2,10 @@
 
 Audience: the VibeCamp operator who owns the shared Metrika account. NOT the
 founder, and NOT the `analytics-metrika` skill. This is the step that produces a
-"properly provisioned Counter ID" — a counter on the shared account **with the 5
-standard goals already created on it**. Run it once per project, before the Counter
-ID is handed to the founder.
+"properly provisioned Counter ID" — a counter on the shared account **with the
+applicable goal subset for that product already created on it** (not a fixed set
+of "5 standard goals"). Run it once per project, before the Counter ID reaches the
+founder via the operator-issued integration brief (`.vibecamp/integration-brief.md`).
 
 Why it matters: `reachGoal` sends an event even when the goal does not exist on the
 counter. So a landing can look fully wired in `?_ym_debug=1` while the cabinet
@@ -36,14 +37,14 @@ working through the "Manual procedure (cabinet)" section below.
 1. Create the counter on the shared VibeCamp account. Name it per `naming.md`:
    `VC · <project-slug> · <primary-domain>`. Add the landing's domain.
 2. Open the counter → **Settings (Настройки) → Goals (Цели)**.
-3. For each of the 5 rows above: **Add goal (Добавить цель)** →
+3. For each applicable row above: **Add goal (Добавить цель)** →
    - Name: the display name from the table.
    - Type (Тип условия): **JavaScript event (JavaScript-событие)**.
    - Identifier (Идентификатор цели): the exact `vc_*` name. No spaces, no typos.
    - Save.
-4. Confirm all 5 goals are listed and active.
-5. Hand the **Counter ID** (8 digits) to the founder. The founder needs nothing
-   else from the cabinet.
+4. Confirm the applicable goals are listed and active.
+5. Issue the **Counter ID** (8 digits) to the founder via the operator-issued
+   integration brief. The founder needs nothing else from the cabinet.
 
 A goal-name typo here breaks optimization silently and is invisible to the founder.
 Copy-paste the identifiers from the table, do not type them.
