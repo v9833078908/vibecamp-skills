@@ -25,8 +25,11 @@ identifier must equal the name exactly. Source of truth: `event-contract.md`.
 | `vc_payment`        | VC · Payment           |
 
 `vc_payment` is also created here as a JavaScript-event goal slot, even though it
-is never fired from the browser — `ads-direct` fills it via offline conversion
-upload by ClientID. Create it now so the slot exists.
+is never fired from the browser — the **payments backend** fills it via offline
+conversion upload by ClientID. Create it now so the slot exists. Provisioning
+itself (the counter + the applicable goal subset) is now performed by the
+backend's `register_product` tool, run by the VibeCamp operator - not by a human
+working through the "Manual procedure (cabinet)" section below.
 
 ## Manual procedure (cabinet — use now)
 

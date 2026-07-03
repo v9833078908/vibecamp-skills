@@ -32,7 +32,8 @@ buyer optimizes on the shared contract goals only.
 
 ## Who issues the Counter ID
 
-The founder receives the Counter ID after registering the project with VibeCamp.
-If automation is not yet live, the VibeCamp traffic owner issues it manually. The
-counter must already carry the 5 standard goals before the ID is handed over — see
-`provisioning.md` for the procedure. Contact: TODO — fill in the responsible person / channel.
+The founder receives the Counter ID inside an **operator-issued integration
+brief** (`.vibecamp/integration-brief.md`), produced when the VibeCamp operator
+runs the payments backend's `register_product` tool. The counter carries the
+**applicable goal subset** for that product (not a fixed set of "5 standard
+goals") before the brief is issued - see `provisioning.md` for the procedure.

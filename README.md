@@ -40,8 +40,8 @@ landing repo to install project-local instead.
 |-------|--------------------|--------|---------|
 | 1     | `preflight`        | todo   | Single gate collecting all preconditions |
 | 2     | `analytics-metrika`| ready  | Metrika counter + contract goals + ClientID/UTM linkage |
-| 3     | `ads-direct`       | todo   | Yandex Direct linkage, offline `vc_payment` upload |
-| 3     | `payments`         | todo   | Payment provider, fake → live, `vc_pay_intent` |
+| 3     | `ads-direct`       | todo   | Yandex Direct linkage |
+| 3     | `payments`         | ready  | Payment provider, fake → live, `vc_pay_intent` |
 | 4     | `verify`           | todo   | End-to-end check + final report to the buyer |
 
 Run order: `preflight` → `analytics-metrika` → (`ads-direct`, `payments`) → `verify`.
@@ -68,5 +68,5 @@ Everything else is done by the agent.
 
 ## Status
 
-v0.1.0 — internal/closed. First skill (`analytics-metrika`) is ready; the rest
+v0.1.0 — internal/closed. `analytics-metrika` and `payments` are ready; the rest
 of the pipeline is in progress. See `AGENTS.md` for the authoring rules.

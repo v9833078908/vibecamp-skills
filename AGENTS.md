@@ -4,8 +4,9 @@
 > (installed by founders via `claude plugin marketplace add v9833078908/vibecamp-skills`).
 > The other half — the payments backend, the MCP server it calls, and all design/plan
 > docs — lives at `/Users/eli/Documents/PythonProjects/i-Free boost/` (read its
-> `CLAUDE.md` first). The `payments` skill here calls that backend's MCP tools; it never
-> signs Callisto requests or holds secrets. This repo stays in the Obsidian vault as its
+> `CLAUDE.md` first). The `payments` skill here works from an operator-issued
+> integration brief; it never calls that backend's MCP tools, signs Callisto requests,
+> or holds secrets. This repo stays in the Obsidian vault as its
 > own git repo — commit here, do not relocate it.
 
 Internal package that wraps a founder's landing page before traffic is poured on
@@ -40,8 +41,8 @@ not in the names.
 |-------|--------------------|--------|---------|
 | 1     | `preflight`        | todo   | Single gate collecting all preconditions |
 | 2     | `analytics-metrika`| ready  | Metrika counter + contract goals + ClientID/UTM |
-| 3     | `ads-direct`       | todo   | Yandex Direct linkage, offline `vc_payment` upload |
-| 3     | `payments`         | todo   | Payment provider, fake → live, `vc_pay_intent` |
+| 3     | `ads-direct`       | todo   | Yandex Direct linkage |
+| 3     | `payments`         | ready  | Payment provider, fake → live, `vc_pay_intent` |
 | 4     | `verify`           | todo   | End-to-end check + final report to the buyer |
 
 Run order: `preflight` → `analytics-metrika` → (`ads-direct`, `payments`) → `verify`.

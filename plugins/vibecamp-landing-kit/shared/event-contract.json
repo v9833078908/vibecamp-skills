@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "clientGoals": ["vc_cta_click", "vc_lead", "vc_checkout_start", "vc_pay_intent"],
+  "serverGoals": ["vc_payment"],
+  "paymentOwner": "payments-backend"
+}

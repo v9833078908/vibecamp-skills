@@ -25,7 +25,8 @@ allowed-tools:
 You are leading a founder by the hand. They built the landing themselves; your
 job is to instrument it to the VibeCamp standard so the founder **never touches
 code or opens the Metrika UI**. The counter and goals already exist on the shared
-VibeCamp account — the founder was given only the counter number (Counter ID).
+VibeCamp account — the founder receives the Counter ID via the operator-issued
+integration brief.
 
 Goal names come from `${CLAUDE_PLUGIN_ROOT}/shared/event-contract.md`. They are
 locked: the buyer optimizes on them. The names are also inlined below, so the
@@ -55,18 +56,22 @@ The counter and the goals both live on the shared VibeCamp account — the found
 creates none of it. "Properly provisioned" means two things must be true on the
 VibeCamp side before you wire anything:
 
-1. **Counter ID issued by VibeCamp** (8 digits). The founder gets it by registering
-   the project in the VibeCamp system (see `${CLAUDE_PLUGIN_ROOT}/shared/naming.md`).
-   Without the number, do not proceed — events have nowhere to go.
+1. **Counter ID issued by VibeCamp** (8 digits). The founder gets it from the
+   operator-issued integration brief at `.vibecamp/integration-brief.md`, produced
+   when the VibeCamp operator runs `register_product` (see
+   `${CLAUDE_PLUGIN_ROOT}/shared/naming.md`). Without the number, do not proceed —
+   events have nowhere to go.
 
-2. **The 5 standard goals already exist on that counter:** `vc_cta_click`,
-   `vc_lead`, `vc_checkout_start`, `vc_pay_intent`, `vc_payment`. They are created
-   on the VibeCamp side (see `${CLAUDE_PLUGIN_ROOT}/shared/provisioning.md`), NOT by
-   this skill and NOT by the founder. The founder has no Metrika UI access and
-   cannot check them — when VibeCamp issues the Counter ID it must come with the
-   goals already created. **Critical:** `reachGoal` sends the event even when no
-   goal exists, so the landing "looks wired" in the debug console while the cabinet
-   counts nothing. A missing goal is a silent loss, not an error.
+2. **The applicable goal subset already exists on that counter** (drawn from
+   `vc_cta_click`, `vc_lead`, `vc_checkout_start`, `vc_pay_intent`, `vc_payment`).
+   They are created on the VibeCamp side (see
+   `${CLAUDE_PLUGIN_ROOT}/shared/provisioning.md`), NOT by this skill and NOT by
+   the founder. The founder has no Metrika UI access and cannot check them —
+   `register_product`'s own verification step (run by the operator) guarantees the
+   applicable goals exist and are valid before the brief is issued. **Critical:**
+   `reachGoal` sends the event even when no goal exists, so the landing "looks
+   wired" in the debug console while the cabinet counts nothing. A missing goal is
+   a silent loss, not an error.
 
 Save the Counter ID (add the file to `.gitignore`):
 
@@ -94,8 +99,8 @@ standard:
   Request the ID (with goals) instead.
 
 Counter ID in hand and goals confirmed — continue. Otherwise print what is missing
-and stop. **Check-in:** confirm the Counter ID with the founder, and confirm with
-VibeCamp that its standard goals are already created, before touching any code.
+and stop. **Check-in:** confirm the Counter ID with the founder, before touching
+any code.
 
 ---
 
@@ -147,8 +152,9 @@ For SPAs without a manual `hit`, Metrika sees only the first page.
 
 ## Block 2 — Contract goals + cross-cutting ClientID and UTM
 
-The goals **already exist** on the VibeCamp side. Your job is only to **fire** them
-at the right places in the landing. Do not create goals in the Metrika UI.
+The applicable goal subset **already exists** on the VibeCamp side. Your job is
+only to **fire** them at the right places in the landing. Do not create goals in
+the Metrika UI.
 
 First, find the elements — then **confirm with the founder before wiring:** which
 button is the primary CTA, which form is the lead form, where checkout opens. Do
@@ -200,7 +206,7 @@ function onPaySubmit(){ vcGoal("vc_pay_intent"); /* send to the payment provider
 ### 2.5 `vc_payment` — NOT client-side
 The goal already exists as a slot. Do NOT call it from the browser — payment is
 confirmed by the provider webhook, and the server-side conversion is uploaded by
-skill `ads-direct`. Do nothing here except note it in the report.
+the **payments backend**. Do nothing here except note it in the report.
 
 ### 2.6 Cross-cutting ClientID and UTM (mandatory)
 Without these, ads cannot be joined to payments and offline conversions cannot be
@@ -262,11 +268,11 @@ on the counter (provisioning gap, not a code bug) — see
 
 Generate a report from `${CLAUDE_PLUGIN_ROOT}/shared/report-template.md` and hand
 it to the founder: Counter ID, which goals are wired and where, that `vc_payment`
-is server-side and waits for `ads-direct`, ClientID/UTM linkage status,
+is server-side and uploaded by the payments backend, ClientID/UTM linkage status,
 self-check result, open risks.
 
 Point to the next step: skill `ads-direct` — Yandex Direct linkage (yclid,
-conversion optimization, offline upload of `vc_payment`).
+conversion optimization).
 
 ---
 

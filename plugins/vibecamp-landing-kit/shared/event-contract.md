@@ -24,7 +24,7 @@ that does not yet exist on the counter is silently lost.
 | `vc_payment` | Payment provider webhook| Offline conversion by ClientID (21-day window) |
 
 `vc_payment` exists as a goal slot but `reachGoal('vc_payment')` is never called
-client-side. It is uploaded by skill `ads-direct`. The Metrika skill only
+client-side. It is uploaded by the **payments backend**. The Metrika skill only
 makes sure the linkage data (ClientID + UTM + yclid) is captured so that upload
 is possible later.
 

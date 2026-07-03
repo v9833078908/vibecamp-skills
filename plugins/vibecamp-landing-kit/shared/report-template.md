@@ -15,7 +15,7 @@ Counter ID:   <8 digits>
 - vc_lead            → <after which form submit>
 - vc_checkout_start  → <where>
 - vc_pay_intent      → <where>
-- vc_payment         → server-side, NOT wired here (waits for skill ads-direct)
+- vc_payment         → server-side, NOT wired here (uploaded by the payments backend)
 
 ### Linkage
 - ClientID captured:  yes / no   (getClientID → hidden fields + backend)
@@ -34,6 +34,5 @@ Counter ID:   <8 digits>
 - VibeCamp confirmed goals count in cabinet: yes / no
 
 ### Next step
-Run skill ads-direct to link Yandex Direct (yclid, conversion optimization,
-offline upload of vc_payment).
+Run skill ads-direct to link Yandex Direct (yclid, conversion optimization).
 ```
